@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>El Cofre de los Sentimientos — Una aventura para Nina ❤️</title>
+<meta name="description" content="Un pequeño universo creado con amor para Nina.">
+<meta name="theme-color" content="#1a1040">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Lora:ital,wght@0,400;0,500;1,400&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<canvas id="bg" aria-hidden="true"></canvas>
+<canvas id="fx" aria-hidden="true"></canvas>
+<div id="flash" aria-hidden="true"></div>
+<a class="skip" href="#stage">Saltar al contenido</a>
+
+<header class="topbar">
+  <button id="btn-home" class="chip" type="button" aria-label="Volver al inicio">🏠 <span class="hide-sm">Inicio</span></button>
+  <nav class="mainnav" aria-label="Secciones">
+    <button type="button" class="navbtn active" data-go="chest" aria-current="page"><span class="ic">🎁</span><span class="nl">El cofre de los sentimientos</span></button>
+    <button type="button" class="navbtn" data-go="letter"><span class="ic">💌</span><span class="nl">Mi carta para Nina</span></button>
+    <button type="button" class="navbtn" data-go="garden"><span class="ic">🌙</span><span class="nl">Una sorpresa para ti</span></button>
+  </nav>
+  <button id="btn-music" class="chip" type="button" aria-pressed="false" aria-label="Música apagada. Toca para encender">🎵</button>
+  <button id="btn-sound" class="chip" type="button" aria-pressed="true" aria-label="Sonido activado. Toca para silenciar">🔊</button>
+</header>
+
+<main id="stage" tabindex="-1">
+
+  <!-- ============ SECCIÓN 1: EL COFRE ============ -->
+  <section id="screen-chest" class="screen active" aria-labelledby="chest-title">
+    <h1 id="chest-title" class="title">El Cofre de los Sentimientos</h1>
+    <p class="subtitle">Una aventura para Nina ❤️</p>
+
+    <p class="lead chest-text">Bienvenida a tu pequeño universo, Nina</p>
+
+    <div class="chest-wrap" id="chest-wrap">
+      <div class="beam" aria-hidden="true"></div>
+      <svg id="chest-svg" viewBox="0 0 400 340" role="img" aria-label="Un cofre mágico rosa y dorado decorado con corazones">
+        <defs>
+          <linearGradient id="gPink" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffa6cc"/><stop offset="1" stop-color="#e5428c"/></linearGradient>
+          <linearGradient id="gGold" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff2b0"/><stop offset=".5" stop-color="#ffc94a"/><stop offset="1" stop-color="#d98f1a"/></linearGradient>
+          <radialGradient id="gGlow"><stop offset="0" stop-color="#fffbe0"/><stop offset=".5" stop-color="#ffe27a" stop-opacity=".85"/><stop offset="1" stop-color="#ffe27a" stop-opacity="0"/></radialGradient>
+          <clipPath id="lidClip"><path d="M58 172 Q58 70 200 70 Q342 70 342 172Z"/></clipPath>
+          <symbol id="hrt" viewBox="0 0 32 30"><path d="M16 29C-6 14 2-3 16 8 30-3 38 14 16 29Z"/></symbol>
+        </defs>
+        <ellipse cx="200" cy="312" rx="150" ry="15" fill="rgba(0,0,0,.35)"/>
+        <g id="chest-body">
+          <rect x="60" y="170" width="280" height="132" rx="14" fill="url(#gPink)"/>
+          <rect x="100" y="170" width="20" height="132" fill="url(#gGold)"/>
+          <rect x="280" y="170" width="20" height="132" fill="url(#gGold)"/>
+          <rect x="56" y="284" width="288" height="20" rx="8" fill="url(#gGold)"/>
+          <use href="#hrt" x="134" y="222" width="24" height="22" fill="#fff" opacity=".9"/>
+          <use href="#hrt" x="244" y="222" width="24" height="22" fill="#fff" opacity=".9"/>
+          <use href="#hrt" x="70" y="236" width="16" height="15" fill="#ffd9ea"/>
+          <use href="#hrt" x="314" y="236" width="16" height="15" fill="#ffd9ea"/>
+          <rect x="176" y="166" width="48" height="52" rx="11" fill="url(#gGold)" stroke="#b9750f" stroke-width="2"/>
+          <circle cx="200" cy="188" r="7" fill="#7a3b1a"/>
+          <rect x="197" y="190" width="6" height="14" rx="3" fill="#7a3b1a"/>
+          <circle cx="102" cy="262" r="4" fill="#fff6c2"/><circle cx="298" cy="262" r="4" fill="#fff6c2"/>
+        </g>
+        <ellipse id="chest-glow" cx="200" cy="170" rx="134" ry="20" fill="url(#gGlow)"/>
+        <g id="lid">
+          <path d="M58 172 Q58 70 200 70 Q342 70 342 172Z" fill="url(#gPink)"/>
+          <g clip-path="url(#lidClip)">
+            <rect x="100" y="60" width="20" height="124" fill="url(#gGold)"/>
+            <rect x="280" y="60" width="20" height="124" fill="url(#gGold)"/>
+            <path d="M80 150 Q90 100 160 88" fill="none" stroke="rgba(255,255,255,.45)" stroke-width="6" stroke-linecap="round"/>
+          </g>
+          <path d="M58 172 Q58 70 200 70 Q342 70 342 172" fill="none" stroke="url(#gGold)" stroke-width="6"/>
+          <rect x="52" y="164" width="296" height="16" rx="8" fill="url(#gGold)"/>
+          <use href="#hrt" x="176" y="106" width="48" height="44" fill="#fff" opacity=".95"/>
+          <use href="#hrt" x="136" y="124" width="18" height="17" fill="#ffd9ea"/>
+          <use href="#hrt" x="246" y="124" width="18" height="17" fill="#ffd9ea"/>
+          <circle cx="200" cy="72" r="6" fill="url(#gGold)"/>
+        </g>
+      </svg>
+    </div>
+
+    <p class="lead chest-text">He guardado algunos sentimientos aquí dentro. ¿Te atreves a descubrirlos?</p>
+    <button id="btn-open-chest" class="btn big" type="button">ABRIR EL COFRE ❤️</button>
+
+    <div id="gifts" class="gifts" hidden>
+      <h2 class="sec-title">Seis regalos secretos para ti</h2>
+      <p class="hint">Toca cada regalo para abrirlo. Tu progreso se guarda solito.</p>
+      <div id="gift-grid" class="gift-grid"></div>
+    </div>
+  </section>
+
+  <!-- ============ SECCIÓN 2: LA CARTA ============ -->
+  <section id="screen-letter" class="screen" aria-labelledby="letter-title">
+    <h2 id="letter-title" class="title sm">Una carta para Nina</h2>
+
+    <div id="env-stage" class="env-stage">
+      <div class="envelope" id="envelope" role="img" aria-label="Un sobre rosa con un tulipán">
+        <div class="env-back"></div>
+        <div class="env-card"><span>Para Nina</span></div>
+        <div class="env-front"></div>
+        <div class="env-flap"></div>
+        <div class="env-seal">🌷</div>
+      </div>
+    </div>
+
+    <div id="letter-intro" class="letter-intro">
+      <p class="lead">Hay palabras que no quiero dejar guardadas solamente en mi corazón...</p>
+      <button id="btn-open-letter" class="btn big" type="button">ABRIR MI CARTA</button>
+    </div>
+
+    <article id="paper" class="paper" hidden tabindex="-1" aria-label="Carta para Nina">
+      <div id="paper-text" class="paper-text"></div>
+      <div class="paper-actions">
+        <button id="btn-skip-letter" class="btn small ghost" type="button">Mostrar toda la carta</button>
+        <button id="btn-reread" class="btn small ghost" type="button">Leer de nuevo ✦</button>
+        <button id="btn-letter-chest" class="btn small" type="button">Volver al cofre</button>
+      </div>
+    </article>
+  </section>
+
+  <!-- ============ SECCIÓN 3: LA SORPRESA ============ -->
+  <section id="screen-garden" class="screen" aria-labelledby="garden-title">
+    <h2 id="garden-title" class="title sm">El lugar donde florecen nuestros sentimientos</h2>
+
+    <div class="hud">
+      <span id="g-count" class="chip static" aria-live="polite">🔎 0 / 5 objetos</span>
+      <div id="g-slots" class="slots" aria-hidden="true"></div>
+      <button id="btn-journal" class="chip" type="button">📖 Mensajes</button>
+      <button id="btn-g-help" class="chip" type="button">❔ Cómo jugar</button>
+      <button id="btn-g-final" class="chip gold" type="button" hidden>💌 Mi declaración</button>
+    </div>
+
+    <div class="garden-wrap" id="garden-wrap">
+      <canvas id="garden" aria-label="Jardín mágico nocturno con una jirafita y un dinosaurio" role="img"></canvas>
+      <div id="garden-objects" class="garden-objects"></div>
+
+      <div id="goldbox" class="goldbox" hidden>
+        <div class="gb-box" aria-hidden="true">
+          <div class="gb-light"></div>
+          <div class="gb-body"><span>❤</span></div>
+          <div class="gb-lid"></div>
+        </div>
+        <button id="btn-goldbox" class="btn" type="button">Abrir la cajita dorada ✨</button>
+      </div>
+
+      <div id="g-intro" class="g-intro" hidden>
+        <div class="g-intro-card">
+          <h3>Antes de entrar...</h3>
+          <p>Dicen que en las noches sin nubes, los sentimientos que no caben en palabras se convierten en semillas. Y que de esas semillas nace un jardín.</p>
+          <p>Una jirafita y un dinosaurio lo cuidan desde siempre, pero esta noche se les perdieron <b>cinco objetos especiales</b>. Cada uno guarda un mensaje, y solo tú puedes encontrarlos.</p>
+          <p class="how"><b>Toca el suelo</b> para que la jirafita camine (el dinosaurio la seguirá) y <b>toca lo que brille</b> para descubrirlo. También puedes usar las flechas del teclado.</p>
+          <button id="btn-g-start" class="btn" type="button">Entrar al jardín 🌷</button>
+        </div>
+      </div>
+    </div>
+    <p id="g-hint" class="hint" aria-live="polite"></p>
+    <button class="btn small ghost" type="button" data-go="chest">↩ Volver al inicio</button>
+  </section>
+</main>
+
+<!-- Ventana modal reutilizable -->
+<div id="modal" class="modal" hidden>
+  <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <button id="modal-close" class="modal-close" type="button" aria-label="Cerrar">✕</button>
+    <h2 id="modal-title" class="modal-title"></h2>
+    <div id="modal-body"></div>
+  </div>
+</div>
+
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+<noscript><p class="noscript">Esta aventura necesita JavaScript para funcionar. Actívalo y vuelve a entrar, Nina ❤️</p></noscript>
+
+<audio id="music" src="audio/melting-cover.mp3" loop preload="none"></audio>
+<script src="script.js"></script>
+</body>
+</html>
